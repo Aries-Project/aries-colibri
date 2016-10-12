@@ -1,0 +1,3 @@
+config BR2_PACKAGE_MULTIMEDIA_BUNDLE
+	select BR2_PACKAGE_FFMPEG
+	bool "multimedia-bundle"

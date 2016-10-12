@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Colibri - Bootstrap</title>
+
+		<!-- Use the correct meta names below for your web application Ref: http://davidbcalhoun.com/2010/viewport-metatag <meta name="HandheldFriendly" content="True">-->
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+		<!-- Basic Styles -->
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-fabtotum.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/fonts.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/lockscreen.min.css" />
+
+		<link rel="stylesheet" href="css/pure-min.css"/>
+		<link rel="stylesheet" href="css/progrecss.min.css"/>
+		<link rel="stylesheet" href="css/font-awesome.min.css"/>
+		<link rel="stylesheet" href="css/colibri.css"/>
+
+		<style>
+			#header > :first-child, aside { width:100% !important; }
+			.lockscreen { margin-top:0px !important; position:absolute; top:0% !important; }
+			.bootstrapWizard li { width:20% !important; }
+			.lockscreen .logo img { width:auto; max-width:100% !important; height:auto; }
+			#main { margin-left:0px !important; }
+		</style>
+
+		<script type="text/javascript" src="js/colibri-webui.js"></script>
+
+	</head>
+
+	<body onload="myTimer()">
+		<div id="main" role="main">
+			<!-- MAIN CONTENT -->
+			<div>
+				<div id="wizard-0" novalidate="novalidate" class="lockscreen">
+					<div class="logo text-align-center">
+						<img align="left" src="img/colibri_logo_small.png">
+						<img src="img/logo_1.png" />
+					</div>
+					<div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div id="bootstrap-wizard-1" class="col-sm-12">
+									<div class="form-bootstrapWizard">
+										<ul class="bootstrapWizard form-wizard">
+											<li class="active" data-target="#step0">
+												<a href="#tab0" data-toggle="tab"> <span class="step">0</span> <span
+												class="title">Bootstrap</span>
+												</a>
+											</li>
+											<li data-target="#step1">
+												<a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span
+												class="title">Welcome</span>
+												</a>
+											</li>
+											<li data-target="#step2">
+												<a href="#tab2" data-toggle="tab"> <span
+												class="step">2</span> <span class="title">Account</span>
+												</a>
+											</li>
+											<li data-target="#step3">
+												<a href="#tab3" data-toggle="tab"> <span
+												class="step">3</span> <span class="title">Network</span>
+												</a>
+											</li>
+											<li data-target="#step4">
+												<a href="#tab4" data-toggle="tab"> <span
+												class="step">4</span> <span class="title">Finish</span>
+												</a>
+											</li>
+										</ul>
+										<div class="clearfix"></div>
+									</div>
+									<div class="tab-content">
+										<div class="tab-pane active" id="tab0">
+											<br>
+											<h3>
+												<strong>Step 0</strong> - Bootstrap
+											</h3>
+											<div class="row">
+												 <div class="col-xs-12 terminal" id="webui-content">
+												 </div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

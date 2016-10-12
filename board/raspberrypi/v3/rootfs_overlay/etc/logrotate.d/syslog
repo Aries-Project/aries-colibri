@@ -1,0 +1,16 @@
+/var/log/cron.log
+/var/log/auth.log
+/var/log/daemon.log
+/var/log/kern.log
+/var/log/user.log
+/var/log/messages
+/var/log/syslog
+/var/log/debug {
+    size 1M
+    rotate 5
+    missingok
+    sharedscripts
+    postrotate
+        /usr/bin/killall -HUP syslogd &> /dev/null
+    endscript
+}

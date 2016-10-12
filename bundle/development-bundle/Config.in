@@ -1,0 +1,2 @@
+config BR2_PACKAGE_DEVELOPMENT_BUNDLE
+	bool "development-bundle"

@@ -1,0 +1,5 @@
+config BR2_PACKAGE_TOOLS_BUNDLE
+	select BR2_PACKAGE_CURA_ENGINE
+	select BR2_PACKAGE_AVRDUDE
+	select BR2_PACKAGE_STRACE
+	bool "tools-bundle"

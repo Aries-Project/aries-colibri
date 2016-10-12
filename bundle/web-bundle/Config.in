@@ -1,0 +1,4 @@
+config BR2_PACKAGE_WEB_BUNDLE
+	select BR2_PACKAGE_LIGHTTPD
+	select BR2_PACKAGE_PHP
+	bool "web-bundle"

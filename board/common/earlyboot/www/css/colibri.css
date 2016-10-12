@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "TerminalFont";
+  src: url("../fonts/Inconsolata.otf") format("opentype");
+}
+
+.loader {
+	
+	position: relative;
+	top: 10px;
+	height: 20px;
+}
+
+html, body {
+	height:100%;
+	margin:0;
+	overflow:hidden;
+}
+
+header, footer {
+	display:block;
+	background-color:black;
+	height:75px;
+	padding-top: 10px;
+	padding-right: 10px;  
+	padding-bottom: 10px;  
+	padding-left: 10px;
+	z-index: 100;
+}
+
+.header_line {
+	background-color:white;
+	height: 3px;
+	width: 100%;
+	position: absolute;
+    left: 0px;
+    top: 78px;
+}
+
+section {
+	background-color:#a8bb51;
+	display:block;
+	overflow-y:scroll;
+    height: -moz-calc(100% - 85px);
+    height: -webkit-calc(100% - 85px);
+    height: calc(100% - 85px);
+    z-index: 0;
+}
+
+section .terminal {
+	font-family: 'TerminalFont';
+	padding-top: 10px;
+	padding-right: 10px;  
+	padding-bottom: 10px;  
+	padding-left: 10px;
+}
+
+.rotating {
+	-webkit-animation: cssAnimation 1.5s infinite linear;
+	-moz-animation: cssAnimation 1.5s infinite linear;
+	-o-animation: cssAnimation 1.5s infinite linear;
+}
+
+@-webkit-keyframes cssAnimation {
+	from { -webkit-transform: rotate(0deg);  }
+	to { -webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes cssAnimation {
+	from { -moz-transform: rotate(0deg);  }
+	to { -moz-transform: rotate(360deg); }
+}
+
+@-o-keyframes cssAnimation {
+	from { -o-transform: rotate(0deg);}
+	to { -o-transform: rotate(360deg); }
+}
+
+
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+	background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+	background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+	background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+	background: rgb(66, 184, 221); /* this is a light blue */
+}

@@ -1,0 +1,11 @@
+menu "FABTotum"
+
+	source "$BR2_EXTERNAL/package/Config.in"
+
+endmenu
+
+menu "Bundles"
+
+	source "$BR2_EXTERNAL/bundle/Config.in"
+
+endmenu

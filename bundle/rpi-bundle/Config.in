@@ -1,0 +1,3 @@
+config BR2_PACKAGE_RPI_BUNDLE
+	select BR2_PACKAGE_RPU_USERLAND
+	bool "rpi-bundle"

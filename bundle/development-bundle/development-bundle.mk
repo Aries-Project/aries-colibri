@@ -1,0 +1,9 @@
+DEVELOPMENT_BUNDLE_NAME = development
+DEVELOPMENT_BUNDLE_ORDER = 070
+DEVELOPMENT_BUNDLE_VERSION = v$(shell date +%Y%m%d)
+DEVELOPMENT_BUNDLE_LICENSE = GPLv2
+DEVELOPMENT_BUNDLE_LICENSE_FILES = COPYING
+
+DEVELOPMENT_BUNDLE_PACKAGES = git binutils make findutils diffutils flex gettext
+
+$(eval $(bundle-package))

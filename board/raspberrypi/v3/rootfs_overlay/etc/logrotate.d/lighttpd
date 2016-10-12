@@ -1,0 +1,6 @@
+/var/log/lighttpd/*.log {
+    size 1M
+    rotate 5
+    missingok
+    notifempty
+}

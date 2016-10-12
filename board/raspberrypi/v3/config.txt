@@ -1,0 +1,24 @@
+# FABtotum
+
+# Camera settings
+gpu_mem=128
+
+# UART 250k baud rate support
+init_uart_clock=4000000
+
+# RPi3 UART1 workarround
+enable_uart=1
+dtoverlay=pi3-disable-bt
+
+# 5" HDMI LCD
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt 800 480 60 6 0 0 0
+
+# Earlyboot
+initramfs initramfs.img
+
+# Kernel is selected by start.elf bootloader
+#  kernel.img for RPi1 (armv6)
+#  kernel7.img for RPi2,3 (armv7)
+
