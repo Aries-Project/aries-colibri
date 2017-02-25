@@ -17,6 +17,12 @@ PYTHON_BUNDLE_PACKAGES += python-shapely geos
 # pyro4
 #~ PYTHON_BUNDLE_PACKAGES += python-six python-serpent python-selectors34 python-pyro4
 # Web
-PYTHON_BUNDLE_PACKAGES += python-autobahn python-txaio python-six
+PYTHON_BUNDLE_PACKAGES += python-autobahn python-txaio python-six 
+PYTHON_BUNDLE_PACKAGES += python-twisted python-zope-interface
+PYTHON_BUNDLE_PACKAGES += python-crossbar python-setuptools python-setproctitle \
+	python-attrs python-pyasn1 python-pyasn1-modules python-cryptography python-pyopenssl python-service-identity \
+	python-treq python-requests python-pynacl libsodium python-cbor python-pyubjson python-lmdb python-u-msgpack \
+	python-psutil python-shutilwhich python-pygments python-jinja2 python-markupsafe python-pytrie python-click python-netaddr \
+	python-idna python-wsaccel
 
 $(eval $(bundle-package))

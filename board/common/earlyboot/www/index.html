@@ -20,6 +20,7 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="css/font-fabtotum.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/fonts.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/lockscreen.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/third_party.css" />
 
 		<link rel="stylesheet" href="css/pure-min.css"/>
 		<link rel="stylesheet" href="css/progrecss.min.css"/>
@@ -31,75 +32,149 @@
 			.lockscreen { margin-top:0px !important; position:absolute; top:0% !important; }
 			.bootstrapWizard li { width:20% !important; }
 			.lockscreen .logo img { width:auto; max-width:100% !important; height:auto; }
+			.log { height: 100px; overflow-y: scroll; }
+			.log-content { min-height: 100px;  padding-left:10px; padding-top: 5px; background: rgb(240, 240, 240 ); /* this is a light blue */}
+			.recovery-icon { height:200px}
+			.logo {height:}
 			#main { margin-left:0px !important; }
+			.nopadding { padding: 0 !important;  margin: 0 !important; }
 		</style>
 
+
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
 		<script type="text/javascript" src="js/colibri-webui.js"></script>
 
 	</head>
 
-	<body onload="myTimer()">
+	<body>
 		<div id="main" role="main">
 			<!-- MAIN CONTENT -->
 			<div>
-				<div id="wizard-0" novalidate="novalidate" class="lockscreen">
+				<div  novalidate="novalidate" class="lockscreen">
 					<div class="logo text-align-center">
-						<img align="left" src="img/colibri_logo_small.png">
-						<img src="img/logo_1.png" />
+						<img src="img/fabui_colibri_animated.gif" style="height:100px"/>
 					</div>
+					
 					<div>
+					<!-- Firstboot view: START -->
+					<div id="firstboot-view" class="collapse">
+						<div class="center-block text-center">
+							<h1><strong>OS Installation</strong></h1>
+							<img class="recovery-icon" src="img/fabui_recovery_white.png">
+						</div>
+						
+						<div id="button-strip" class="center-block text-center collapse in">
+							<button id="start-installation" type="button" class="btn btn-primary action-button">Start</button>
+						</div>
+					</div>
+					<!-- Firstboot view: END -->
+					
+					<!-- Recovery view: START -->
+					<div id="recovery-view" class="collapse">
+						<div class="center-block text-center">
+							<h1><strong>Recovery</strong></h1>
+							<img class="recovery-icon" src="img/fabui_recovery_white_animated.gif">
+						</div>
+
 						<div class="row">
-							<div class="col-sm-12">
-								<div id="bootstrap-wizard-1" class="col-sm-12">
-									<div class="form-bootstrapWizard">
-										<ul class="bootstrapWizard form-wizard">
-											<li class="active" data-target="#step0">
-												<a href="#tab0" data-toggle="tab"> <span class="step">0</span> <span
-												class="title">Bootstrap</span>
-												</a>
-											</li>
-											<li data-target="#step1">
-												<a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span
-												class="title">Welcome</span>
-												</a>
-											</li>
-											<li data-target="#step2">
-												<a href="#tab2" data-toggle="tab"> <span
-												class="step">2</span> <span class="title">Account</span>
-												</a>
-											</li>
-											<li data-target="#step3">
-												<a href="#tab3" data-toggle="tab"> <span
-												class="step">3</span> <span class="title">Network</span>
-												</a>
-											</li>
-											<li data-target="#step4">
-												<a href="#tab4" data-toggle="tab"> <span
-												class="step">4</span> <span class="title">Finish</span>
-												</a>
-											</li>
-										</ul>
-										<div class="clearfix"></div>
+							<div class="col-xs-6 col-md-offset-4">
+								<div class="checkbox files-checkbox" data-content=""><label><input type="checkbox" id="preserve-files" checked>Preserve user files</label></div>
+								<div class="checkbox settings-checkbox" data-content=""><label><input type="checkbox" id="preserve-settings" checked>Preserve system settings</label></div>
+							</div>
+						</div>
+
+						<div class="center-block text-center">
+							<button id="start-recovery" type="button" class="btn btn-primary action-button">Start Recovery</button>
+						</div>
+						<p><div class="center-block text-center">
+							<button id="boot" type="button" class="btn btn-xs btn-default action-button" data-toggle="popover" data-html="true" title="Boot" data-content="Continue normal boot without any recovery.">Boot</button>
+						</div></p>
+						
+					</div>
+					<!-- Recovery view: END -->
+					
+					<!-- Progress view: START -->
+					<div id="progress-view" class="collapse">
+					
+						<div class="center-block text-center">
+							<h1><strong><span id="progress-title">OS Installation</span></strong></h1>
+							<img class="recovery-icon" src="img/fabui_recovery_white_animated.gif">
+						</div>
+					
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="btn-group" role="group">
+									
+									<span id="current-message" class=""></span>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="row">
+
+							<div class="col-xs-11 " style="padding-right: 0 !important;  margin-right: 0 !important; height: 20px">
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="0" style="width:0%">
+										
 									</div>
-									<div class="tab-content">
-										<div class="tab-pane active" id="tab0">
-											<br>
-											<h3>
-												<strong>Step 0</strong> - Bootstrap
-											</h3>
-											<div class="row">
-												 <div class="col-xs-12 terminal" id="webui-content">
-												 </div>
-											</div>
+								</div>
+							</div>
+							<div class="col-xs-1 nopadding">
+								<button style="height:22px;" type="button" id="show-log" data-action="show" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#log" aria-expanded="false" aria-controls="log"> <i class="fa fa-angle-double-down" aria-hidden="true"></i></button> 
+							</div>
+
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-12" style="width: 470px; margin-top: 2px;">
+								<div class="collapse" id="log">
+									<div class="log">
+										<div class="log-content">
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						
+					</div>
+					<!-- Progress view: END -->
+					
+					<!-- Countdown view: START -->
+					<div id="countdown-view" class="collapse">
+					
+						<div class="center-block text-center">
+							<h1><strong><span>Booting</span></strong></h1>
+						</div>
+						
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="center-block text-center">
+									<div class="chart" data-percent="100">
+										<span class="percent" id="countdown">0</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="center-block text-center">
+									<span>Plaese wait until the system boot finishes. The page will reload automatically.</span>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					<!-- Countdown view: END -->
+					
 					</div>
 				</div>
 			</div>
 		</div>
+		
 	</body>
 
 </html>
